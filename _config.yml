@@ -1,0 +1,10 @@
+name: "Model-Vis"
+description: "Model Visualisation"
+
+baseurl: /
+
+permalink: pretty
+
+collections:
+  chapters:
+    output: true

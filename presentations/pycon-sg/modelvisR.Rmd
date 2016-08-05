@@ -1,0 +1,98 @@
+---
+title: "modelvisR"
+author: "Amit Kapoor"
+date: "5 July 2016"
+output: html_document
+---
+
+## Load the Data
+
+
+
+
+```{r}
+library(ggbiplot)
+setwd("~/Dropbox/github/modelvis/")
+df <- read.csv("winequality-red.csv")
+```
+
+
+# Mutate the Dataset
+
+```{r}
+str(df)
+df$class[df$quality < 6] <- 0
+df$class[df$quality >= 6] <- 1
+str(df)
+df$quality <- as.factor(df$quality)
+df$class <- as.factor(df$class)
+str(df)
+
+```
+
+## Create Train and Test 
+We need to create balanced test and training data
+
+```{r}
+library(caret)
+set.seed(123)
+trainIndex <- createDataPartition(df$class, p = .8,
+                                  list = FALSE,
+                                  times = 1)
+head(trainIndex)
+train <- df[ trainIndex,]
+test  <- df[-trainIndex,]
+summary(train$class)
+summary(test$class)
+```
+
+
+## Plotting 
+
+```{r}
+library(ggplot2)
+library(ggthemes)
+ggplot(df) + aes(fixed.acidity, alcohol, color = class) + 
+  geom_point(alpha = 0.6, size = 3) 
+
+
+```
+
+
+## PCA Analysis
+
+```{r}
+
+pca <- prcomp(df[,1:11], scale. = TRUE)
+names(pca)
+
+g <- ggbiplot(pca, obs.scale = 1, var.scale = 1, 
+              groups = df$class, ellipse = TRUE, circle = TRUE)
+g <- g + scale_color_discrete(name = '')
+g <- g + opts(legend.direction = 'horizontal', 
+              legend.position = 'top')
+print(g)
+
+```
+
+
+# MDS Analsys
+
+```{r}
+d <- dist(df[,1:11]) # euclidean distances between the rows
+fit <- cmdscale(d,eig=TRUE, k=2) # k is the number of dim
+fit # view results
+
+# plot solution 
+x <- fit$points[,1]
+y <- fit$points[,2]
+plot(x, y, xlab="Coordinate 1", ylab="Coordinate 2", 
+  main="Metric	MDS",	type="n")
+text(x, y, labels = row.names(mydata), cex=.7)
+```
+
+
+
+
+
+
