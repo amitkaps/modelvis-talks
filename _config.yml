@@ -1,9 +1,8 @@
 name: "Model-Vis"
 description: "Model Visualisation"
 
-baseurl: /
-
 permalink: pretty
+port: 4002
 
 collections:
   chapters:
