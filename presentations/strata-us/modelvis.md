@@ -82,12 +82,6 @@ theme: Olive Green, 8
 
 ---
 
-# **Model Exploration**
-## ___
-## Use visualisation to aid the transition of **implicit knowledge** in the data and your head to **explicit knowledge** in the model.
-
----
-
 # **Model-Vis Approach**
 ## ___
 ### **[0]** Visualise the **data space**
@@ -103,10 +97,8 @@ theme: Olive Green, 8
 
 # **Model-Vis Examples**
 ## ___
-### Regression: Small (n < 50, p = 4)
-### Classification: 2 class (n ~ 60K, p = 2)
-### Classification: 10 class (n ~ 2K, p = 10)
-### Regression: N-models (n ~ 60K, p = 4)
+## **Regression** (n < 50, p = 4)
+## **Classification: 2 class** (n ~ 5K, p = 785)
 
 ---
 
@@ -203,36 +195,28 @@ VW       Vento      785	   16.1	   Sedan       104
 ### **[6]** **FEATURES**: the entire feature space
 ### **[7]** **N-MODELS**: the many models together
 
---- 
+---
 
-# **Model Explosion**
+# **Model-Vis Methods**
 ## ___
-### **Base Models = 7**
-#### OLS Regression (p = 1, p = 2, p = 3)
-#### Ridge Regression, Polynomial, LOWESS (total, by type)
-### + **Add Tuning Models**
-### + **Add Bootstrap Models**
-### + **Add Ensemble Models**
-### + **Add Cross-Validation Models**
+## Limited **standard** methods articulated
+## Adapt to **data** and **domain** type
+## Scope for **innovation** and **development**
 
 ---
 
-# **Challenge with Model**
+# **Model-Vis Key Concept**
 ## ___
-## Keep track of **prediction** & **errors**
-## Keep track of **model output parameters**
-
----
+## Use visualisation to aid the transition of **implicit knowledge** in the data and your head to **explicit knowledge** in the model.
 
 ---
 
 # **Classification: 2 Class**
 ## ___
-## MNIST dataset - **price vs kmpl**
-## Scraped from **comparison** website
-## Refined & **tidied** up
-## **Base version** for **petrol** cars
-## Price **< ₹ 1,000K**, n = **42**
+## MNIST - **digit recognition**
+## Reduced to 2-class - **1** and **2**
+## 784 dimensions - **28 x 28 gray pixel map**
+## n > **5000**
 
 ---
 
@@ -242,58 +226,93 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
-###   [0] Visualise the **data space**
+###  Visualise the **data space**
 
 ![fit original](figures/fig_mnist_00c.png) ![fit original](figures/fig_mnist_00d.png) 
 
 ---
 
-###   [0] Visualise the **data space**
+###  Identify the features - **Symmetry** & **Intensity**
 
 ![fit original](figures/fig_mnist_00e.png) ![fit original](figures/fig_mnist_00f.png) 
 
 ---
 
-###   [6] Visualise the **entire feature space**
+###   Visualise the **reduced feature space**
 
 ![original](figures/fig_mnist_06.png)
 
 ---
 
-###   [1] Visualise the **predictions in the data space**
-![fit original](figures/fig_mnist_01.png)
+###   Visualise the **predictions in the data space**
+![fit original](figures/fig_mnist_01a.png)
 
 ---
 
-###   [2] Visualise the **errors in model fitting**
+###   Visualise the **errors in model fitting**
 ![fit original](figures/fig_mnist_02.png)
 
 ---
 
-###   [3] Visualise with **different model parameters**
+###   Visualise the **predictions boundaries**
+![fit original](figures/fig_mnist_01b.png)
+
+---
+
+###   Visualise with **different model parameters**
 ![fit original](figures/fig_mnist_03.png)
 
 ---
 
-###   [4] Visualise with **different input datasets**
-![fit original](figures/fig_mnist_04.png)
+# **n/p/N Model-Vis challenge**
+## ___
+## **n** -- Large and big data
+## **p** -- High dimensional data
+## **N** -- Multiple models
 
 ---
 
-###   [5] Visualise the **entire model space**
-
-![fit original](figures/fig_cars_05.png)
-
-
----
-
-###   [7] Visualise the **many models together**
-
-
-![fit original](figures/fig_cars_07.png)
+# How to **scale** for **large p**?
+## ___
+## **Curse** of dimensionality
+## Mesh approach **computationally expensive**
+## Need to use **projections**
 
 ---
 
+###   For **entire feature space** - **t-SNE projection**
+
+![original](figures/fig_mnist_06a.png)
+
+---
+
+###   Map the **error on the projection** 
+![original](figures/fig_mnist_02a.png)
+
+---
+
+# **n/p/N Model-Vis approach**
+## ___
+## **n** -- use **Binning** or **Sampling** 
+## **p** -- use **Projections**
+## **N** -- use **Summaries**
+
+--- 
+
+# In Practice - **Model Explosion**
+## ___
+## **Entire Model Space**
+## + Add **Tuning** Models
+## + Add **Bootstrap** Models
+## + Add **Ensemble** Models
+## + Add **Cross-Validation** Models
+
+---
+
+# **Challenge with Model-Vis**
+## ___
+## Keep track of **prediction** & **errors**
+## Keep track of **model output parameters**
 
 ---
 
@@ -305,28 +324,10 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
-# **Tooling**
+# **Tooling still nascent**
 ## ___
-## Started with python and challenging
-## **broom** package in R (by David Robinson)
-
----
-
-```{r}
-library(dplyr)
-library(broom)
-set.seed(2014)
-
-# Move Bootstrap Output to Tidy Model
-bootcars <- cars %>% 
-            bootstrap(100) %>%
-            do(augment(smooth.spline(.$kmpl, .$price, df=4), .))
-
-# Plot the Output           
-ggplot(bootcars, aes(kmpl, price)) + geom_point() +
-    geom_line(aes(y=.fitted, group=replicate), alpha=.2)
-
-```
+## R: **tidyverse** (esp. **broom** and **purr**)
+## Python: **pybroom**, experimental packages
 
 ---
 
@@ -342,10 +343,10 @@ ggplot(bootcars, aes(kmpl, price)) + geom_point() +
 
 # **Model-Vis**
 ## ___
-### Cars Dataset (n = 833, p = 63)
-### [https://github.com/amitkaps/cars](https://github.com/amitkaps/cars)
+### Model Visualisation Mini-Site (Coming Soon!)
+### [http://modelvis.amitkaps.com](http://modelvis.amitkaps.com)
 ###    
-### Talk Code
+### Code
 ### [https://github.com/amitkaps/modelvis](https://github.com/amitkaps/modelvis)
 
 ---
