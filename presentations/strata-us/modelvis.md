@@ -1,6 +1,6 @@
 theme: Olive Green, 8
 
-# [fit] **Model Visualisation**
+# [fit] **Visualising ML Models**
 ## ___
 ## Amit Kapoor
 ## @amitkaps
@@ -88,139 +88,35 @@ theme: Olive Green, 8
 
 ---
 
-# **Model Visualisation**
+# **Model-Vis Approach**
 ## ___
-### Small: Regression (n = 400, p = 3)
-### Medium: Regression (n = 1K, p = 10)
-### Medium: Classification (n = 1K, p = 10)
-### Large: Classification (n = 1M, p = 10)
+### **[0]** Visualise the **data space**
+### **[1]** Visualise the **predictions in the data space**
+### **[2]** Visualise the **errors in model fitting**
+### **[3]** Visualise with **different model parameters**
+### **[4]** Visualise with **different input datasets**
+### **[5]** Visualise the **entire model space**
+### **[6]** Visualise the **entire feature space**
+### **[7]** Visualise the **many models together**
 
 ---
 
-# **Cars Dataset**
+# **Model-Vis Examples**
 ## ___
+### Regression: Small (n < 50, p = 4)
+### Classification: 2 class (n ~ 60K, p = 2)
+### Classification: 10 class (n ~ 2K, p = 10)
+### Regression: N-models (n ~ 60K, p = 4)
+
+---
+
+# **Regression: Small**
+## ___
+## Cars dataset - **price vs kmpl**
 ## Scraped from **comparison** website
 ## Refined & **tidied** up
 ## **Base version** for **petrol** cars
-## Price **< ₹ 1,000K**
-## n = **42**
-
-
----
-
-**model**    **price**    **kmpl**    **type**
-Nano       199    23.9	   Hatchback
-Alto800    248    22.7	   Hatchback
-EON        302    21.1	   Hatchback
-Datsun     312    20.6	   Hatchback
-...        ...    ...    ...       
-
-Ciaz       725	   20.7	   Sedan
-Rapid      756	   15.0	   Sedan
-Verna      774	   17.4	   Sedan
-Vento      785	   16.1	   Sedan
-
-
----
-
-## **[0]** Visualise the **data space**
-
-![inline original](figures/vega.png)
-
-
----
-
-### **[0]** Visualise the **data space**
-
-![fit original](figures/fig_cars_01.png)
-
----
-
-### **[1]** Visualise the **predictions** in the **data space**
-![fit original](figures/fig_cars_02.png)
-
----
-
-### **[2]** Visualise with **different model parameters**
-![fit original](figures/fig_cars_03.png)
-
----
-
-### **[3]** Visualise with **different input datasets**
-![fit original](figures/fig_cars_04.png)
-
----
-
-### **[4]** Visualise the **model space**
-
-![fit original](figures/fig_cars_06.png)
-
----
-
-![fit original](figures/fig_cars_06b.png)
-
----
-
-# **Add More Features?**
-## ___
-## Search for a better explanation between **price** and **kmpl**
-##    
-## **type**: **hatchback**, **sedan** 
-
----
-
-**brand**    **model**    **price**    **kmpl**    **type**
-Tata     Nano       199    23.9	   Hatchback
-Suzuki   Alto800    248    22.7	   Hatchback
-Hyundai  EON        302    21.1	   Hatchback
-Nissan   Datsun     312    20.6	   Hatchback
-...      ...        ...    ...     ...   
-
-Suzuki   Ciaz       725	   20.7	   Sedan
-Skoda    Rapid      756	   15.0	   Sedan
-Hyundai  Verna      774	   17.4	   Sedan
-VW       Vento      785	   16.1	   Sedan
-
----
-
-![fit](figures/fig_cars_07.png)
-
----
-
-# **Add Features to One Model**
-## ___
-## OLS Regression
-## $$price = \beta_0 + \beta_1 * kmpl + \beta_2 * type $$
-
----
-
-![fit](figures/fig_cars_08a.png)
-
----
-
-# **Build Two Models**
-## ___
-## type = **hatchback**: $$price_h = lowess(kmpl_h)$$
-## type = **sedan**: $$price_s = lowess(kmpl_s)$$
-
-
----
-
-![fit](figures/fig_cars_08b.png)
-
----
-
-# **Model-Vis Approach**
-## ___
-## **[5]** Visualise the **many models together**
-
----
-
-# **Keep Adding Feature**
-## ___
-## Can get complex really fast!
-##    
-## Add one more feature: **bhp**
+## Price **< ₹ 1,000K**, n = **42**
 
 ---
 
@@ -238,82 +134,61 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
-![fit](figures/fig_cars_09.png)
+###   [0] Visualise the **data space**
+
+![fit original](figures/fig_cars_00.png)
 
 ---
 
-# **Build a New Model**
-## ___
-## OLS Regression
-## $$price = \beta_0 + \beta_1 * kmpl + \beta_2 * type + \beta_3 * bhp$$ 
+###   [1] Visualise the **predictions in the data space**
+![fit original](figures/fig_cars_01.png)
 
 ---
 
-![fit](figures/fig_cars_10.png)
+###   [2] Visualise the **errors in model fitting**
+![fit original](figures/fig_cars_02.png)
 
 ---
 
-# **Visualise Model Errors**
-## ___
-## Visualise $$\epsilon = price_{pred} - price$$
+###   [3] Visualise with **different model parameters**
+![fit original](figures/fig_cars_03.png)
 
 ---
 
-![fit](figures/fig_cars_11.png)
-
-
----
-
-![fit](figures/fig_cars_12.png)
+###   [4] Visualise with **different input datasets**
+![fit original](figures/fig_cars_04.png)
 
 ---
 
-# **Errors Easier to Visualise**
-## ___
-## Move away from features
-## Address curse of dimensionality
+###   [5] Visualise the **entire model space**
+
+![fit original](figures/fig_cars_05.png)
 
 ---
 
-# **Prediction vs. Error**
-## ___
-## Test Robustness of the Model
-## Do Cross Validation - 6 fold
+###   [6] Visualise the **entire feature space**
+
+![fit original](figures/fig_cars_06.png)
 
 ---
 
-![fit](figures/fig_cars_13.png)
+###   [7] Visualise the **many models together**
 
----
 
-# **Build the final Model**
-## ___
-## OLS Regression
-## $$price = \beta_0 + \beta_1 * kmpl + \beta_2 * type + \beta_3 * bhp$$ 
-## Cross Validation - 6 fold
-
----
-
-![fit](figures/fig_cars_14.png)
-
+![fit original](figures/fig_cars_07.png)
 
 ---
 
 # **Model-Vis Approach**
 ## ___
-## **[6]** Visualise the errors in **model fitting**
-
----
-
-# **Model-Vis Approach**
-## ___
-**[0]** Visualise the **data space**
-**[1]** Visualise the **predictions in the data space**
-**[2]** Visualise with **different model parameters**
-**[3]** Visualise with **different input datasets**
-**[4]** Visualise the **entire model space**
-**[5]** Visualise the **many models together**
-**[6]** Visualise the **errors in model fitting**
+### **[0]** Visualise the **data space**
+### **[1]** Visualise the **predictions in the data space**
+### **[2]** Visualise the **errors in model fitting**
+### **[3]** Visualise with **different model parameters**
+### **[4]** Visualise with **different input datasets**
+### **[5]** Visualise the **entire model space**
+### **[6]** Visualise the **entire feature space**
+### **[7]** Visualise the **many models together**
 
 ---
 
@@ -321,11 +196,12 @@ VW       Vento      785	   16.1	   Sedan       104
 ## ___
 ### **[0]** **DATA VIS**: the data space
 ### **[1]** **PREDICTION**: the predictions in the data space
-### **[2]** **TUNING**: with different model parameters
-### **[3]** **BOOTSTRAP**: with different input datasets
-### **[4]** **ENSEMBLE**: the entire model space
-### **[5]** **N-MODELS**: the many models together
-### **[6]** **VALIDATION**: the errors in model fitting
+### **[2]** **VALIDATION**: the errors in model fitting
+### **[3]** **TUNING**: with different model parameters
+### **[4]** **BOOTSTRAP**: with different input datasets
+### **[5]** **ENSEMBLE**: the entire model space
+### **[6]** **FEATURES**: the entire feature space
+### **[7]** **N-MODELS**: the many models together
 
 --- 
 
@@ -345,6 +221,79 @@ VW       Vento      785	   16.1	   Sedan       104
 ## ___
 ## Keep track of **prediction** & **errors**
 ## Keep track of **model output parameters**
+
+---
+
+---
+
+# **Classification: 2 Class**
+## ___
+## MNIST dataset - **price vs kmpl**
+## Scraped from **comparison** website
+## Refined & **tidied** up
+## **Base version** for **petrol** cars
+## Price **< ₹ 1,000K**, n = **42**
+
+---
+
+###   MNIST dataset: Examples of number **1** and **2**
+
+![fit original](figures/fig_mnist_00a.png) ![fit original](figures/fig_mnist_00b.png) 
+
+---
+
+###   [0] Visualise the **data space**
+
+![fit original](figures/fig_mnist_00c.png) ![fit original](figures/fig_mnist_00d.png) 
+
+---
+
+###   [0] Visualise the **data space**
+
+![fit original](figures/fig_mnist_00e.png) ![fit original](figures/fig_mnist_00f.png) 
+
+---
+
+###   [6] Visualise the **entire feature space**
+
+![original](figures/fig_mnist_06.png)
+
+---
+
+###   [1] Visualise the **predictions in the data space**
+![fit original](figures/fig_mnist_01.png)
+
+---
+
+###   [2] Visualise the **errors in model fitting**
+![fit original](figures/fig_mnist_02.png)
+
+---
+
+###   [3] Visualise with **different model parameters**
+![fit original](figures/fig_mnist_03.png)
+
+---
+
+###   [4] Visualise with **different input datasets**
+![fit original](figures/fig_mnist_04.png)
+
+---
+
+###   [5] Visualise the **entire model space**
+
+![fit original](figures/fig_cars_05.png)
+
+
+---
+
+###   [7] Visualise the **many models together**
+
+
+![fit original](figures/fig_cars_07.png)
+
+---
+
 
 ---
 
@@ -401,7 +350,7 @@ ggplot(bootcars, aes(kmpl, price)) + geom_point() +
 
 ---
 
-# [fit] **Model Visualisation**
+# [fit] **Visualising ML Models**
 ## ___
 ## Amit Kapoor
 ## @amitkaps

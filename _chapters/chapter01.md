@@ -43,15 +43,13 @@ Data Transformation  — — — —  Model Building
 
 ## Model-Vis Approach
 
-```
-- [0] Visualise the data space
-- [1] Visualise the predictions in the data space
-- [2] Visualise the errors in model fitting
-- [3] Visualise with different model parameters
-- [4] Visualise with different input datasets
-- [5] Visualise the entire model space
-- [6] Visualise the many models together
-```
+[0] Visualise the data space   
+[1] Visualise the predictions in the data space   
+[2] Visualise the errors in model fitting   
+[3] Visualise with different model parameters   
+[4] Visualise with different input datasets   
+[5] Visualise the entire model space   
+[6] Visualise the many models together   
 
 Let us take a small dataset `cars` to understand the concepts in model-vis.
 
