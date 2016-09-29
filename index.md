@@ -8,6 +8,11 @@ layout: default
 
 Though visualisation is used in data science to understand the shape of the data (data-vis), it is not widely used for the models developed; which are largely evaluated based on numerical summaries. Model visualisation (model-vis) can help understand: the shape of the model, the impact of parameters & different input data on the model, the fit of the model & where it can be improved.
 
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/xeleAlL9AVAR4x" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+<br>
+
+
 ## 1. [Introduction](/chapter01)
 
 ## 2. Learning and Layers
