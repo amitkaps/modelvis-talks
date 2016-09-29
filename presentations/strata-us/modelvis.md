@@ -1,4 +1,4 @@
-theme: Olive Green, 8
+theme: Olive Green, 9
 
 # [fit] **Visualising ML Models**
 ## ___
@@ -40,11 +40,32 @@ theme: Olive Green, 8
 
 ---
 
-# **Layers of Abstraction**
+# **Ladder of Abstraction**
 ## ___
 ## **Data** Abstraction
 ## **Visual** Abstraction
 ## **Model** Abstraction
+
+---
+
+![inline](figures/ladder4cut.jpg) 
+![inline](figures/ladder3cut.png) 
+![inline](figures/ladder2cut.png) 
+![inline](figures/ladder1cut.png)
+
+---
+
+# **Why Build Models?**
+## ___
+### First Level of Ignorance
+## *"I know, what I don't know"*   
+
+---
+
+# **Why Visualise Models?**
+## ___
+### Second Level of Ignorance
+## *"I don't know, what I don't know"*
 
 ---
 
@@ -82,6 +103,13 @@ theme: Olive Green, 8
 
 ---
 
+
+# **Model-Vis Key Concept**
+## ___
+## Use visualisation to aid the transition of **implicit knowledge** in the data and your head to **explicit knowledge** in the model.
+
+---
+
 # **Model-Vis Approach**
 ## ___
 ### **[0]** Visualise the **data space**
@@ -97,8 +125,19 @@ theme: Olive Green, 8
 
 # **Model-Vis Examples**
 ## ___
-## **Regression** (n < 50, p = 4)
-## **Classification: 2 class** (n ~ 5K, p = 785)
+## Regression: **Small** 
+## Classification: **Large p** 
+## Regression: **Large n**
+## Regression: **N Models**  
+
+---
+
+# **Model-Vis Examples**
+## ___
+## **Cars** (n < 50, p = 4)
+## **Digits** (n ~ 5K, p = 785)
+## **Taxi** (n ~ 10M, p = 20)
+## **Onions** (n ~ 60k, p = 10)
 
 ---
 
@@ -126,46 +165,45 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
-###   [0] Visualise the **data space**
+###      [0] Visualise the **data space**
 
 ![fit original](figures/fig_cars_00.png)
 
 ---
 
-###   [1] Visualise the **predictions in the data space**
+###      [1] Visualise the **predictions in data space**
 ![fit original](figures/fig_cars_01.png)
 
 ---
 
-###   [2] Visualise the **errors in model fitting**
+###      [2] Visualise the **errors in model fitting**
 ![fit original](figures/fig_cars_02.png)
 
 ---
 
-###   [3] Visualise with **different model parameters**
+###      [3] Visualise with **different model parameters**
 ![fit original](figures/fig_cars_03.png)
 
 ---
 
-###   [4] Visualise with **different input datasets**
+###      [4] Visualise with **different input datasets**
 ![fit original](figures/fig_cars_04.png)
 
 ---
 
-###   [5] Visualise the **entire model space**
+###      [5] Visualise the **entire model space**
 
 ![fit original](figures/fig_cars_05.png)
 
 ---
 
-###   [6] Visualise the **entire feature space**
+###      [6] Visualise the **entire feature space**
 
 ![fit original](figures/fig_cars_06.png)
 
 ---
 
-###   [7] Visualise the **many models together**
-
+###      [7] Visualise the **many models together**
 
 ![fit original](figures/fig_cars_07.png)
 
@@ -192,83 +230,83 @@ VW       Vento      785	   16.1	   Sedan       104
 ### **[3]** **TUNING**: with different model parameters
 ### **[4]** **BOOTSTRAP**: with different input datasets
 ### **[5]** **ENSEMBLE**: the entire model space
-### **[6]** **FEATURES**: the entire feature space
+### **[6]** **FEATURE ENGG**: the entire feature space
 ### **[7]** **N-MODELS**: the many models together
 
 ---
 
-# **Model-Vis Methods**
+# **Move through Layers**
 ## ___
-## Limited **standard** methods articulated
-## Adapt to **data** and **domain** type
-## Scope for **innovation** and **development**
+## **Iterative**, not linear
+## **Up and Down**, not lateral 
+## **Complementary**, not exclusive
 
 ---
 
-# **Model-Vis Key Concept**
+# **p/n/N Model-Vis challenge**
 ## ___
-## Use visualisation to aid the transition of **implicit knowledge** in the data and your head to **explicit knowledge** in the model.
+## **p** -- High dimensional data
+## **n** -- Large and big data
+## **N** -- Multiple models
 
 ---
 
 # **Classification: 2 Class**
 ## ___
 ## MNIST - **digit recognition**
-## Reduced to 2-class - **1** and **2**
-## 784 dimensions - **28 x 28 gray pixel map**
+## Reduced to 2-class: **1** and **2**
+## p = 784, **28 x 28 gray pixel map**
 ## n > **5000**
 
 ---
 
-###   MNIST dataset: Examples of number **1** and **2**
+# MNIST dataset: Examples of number **1** and **2**
 
-![fit original](figures/fig_mnist_00a.png) ![fit original](figures/fig_mnist_00b.png) 
-
----
-
-###  Visualise the **data space**
-
-![fit original](figures/fig_mnist_00c.png) ![fit original](figures/fig_mnist_00d.png) 
+![fit inline](figures/fig_mnist_00a.png) ![fit inline](figures/fig_mnist_00b.png) 
 
 ---
 
-###  Identify the features - **Symmetry** & **Intensity**
+# Visualise the **data space**
 
-![fit original](figures/fig_mnist_00e.png) ![fit original](figures/fig_mnist_00f.png) 
-
----
-
-###   Visualise the **reduced feature space**
-
-![original](figures/fig_mnist_06.png)
+![fit inline](figures/fig_mnist_00c.png) ![fit inline](figures/fig_mnist_00d.png) 
 
 ---
 
-###   Visualise the **predictions in the data space**
+# Identify the features - **Symmetry** & **Intensity**
+
+![fit inline](figures/fig_mnist_00e.png) ![fit inline](figures/fig_mnist_00f.png) 
+
+---
+
+###        Visualise the **reduced feature space**
+
+![fit original](figures/fig_mnist_06.png)
+
+---
+
+###        Visualise the **predictions in data space**
 ![fit original](figures/fig_mnist_01a.png)
 
 ---
 
-###   Visualise the **errors in model fitting**
-![fit original](figures/fig_mnist_02.png)
-
----
-
-###   Visualise the **predictions boundaries**
+###        Visualise the **predictions boundaries**
 ![fit original](figures/fig_mnist_01b.png)
 
 ---
 
-###   Visualise with **different model parameters**
+###        Visualise the **errors in model fitting**
+![fit original](figures/fig_mnist_02b.png)
+
+
+---
+
+###        Visualise with **different model parameters**
 ![fit original](figures/fig_mnist_03.png)
 
 ---
 
-# **n/p/N Model-Vis challenge**
-## ___
-## **n** -- Large and big data
-## **p** -- High dimensional data
-## **N** -- Multiple models
+#  Easy to visualise errors in **data space**
+![fit inline](figures/fig_mnist_02c.png) ![fit original](figures/fig_mnist_02d.png) 
 
 ---
 
@@ -280,14 +318,50 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
-###   For **entire feature space** - **t-SNE projection**
+###     For **entire feature space** - **PCA projection**
+
+![original](figures/fig_mnist_06b.png)
+
+---
+
+###     Map the **error on the projection** 
+![original](figures/fig_mnist_06c.png)
+
+---
+
+###     Cannot use any projection e.g. **t-SNE**
 
 ![original](figures/fig_mnist_06a.png)
 
 ---
 
-###   Map the **error on the projection** 
-![original](figures/fig_mnist_02a.png)
+# High-p Boundary Classifiers
+## ___
+## **Curse** of dimensionality
+## Mesh approach **computationally expensive**
+## Need to use **projections**
+
+---
+
+
+# **Regression: Large n**
+## ___
+## NYC Taxi Trip Data
+## n ~ **10M** (in just one month)
+## p = 20, **geo location** (drop & pick up), **fare breakup**, **passenger no.** etc.
+
+---
+
+# **Data-Vis Issue**
+## ___
+![right](figures/fig_mnist_00c.png)
+
+---
+
+###  [0] Visualise the **data space**
+
+![fit original](figures/fig_mnist_02c.png) ![fit original](figures/fig_mnist_02d.png) 
+
 
 ---
 
@@ -338,6 +412,19 @@ VW       Vento      785	   16.1	   Sedan       104
 ## Essential in **ML Model Pipeline**
 ## Both **to Explain** or **to Predict**
 ## Scope for **easier tooling**
+
+---
+
+---
+
+# **Model-Vis Methods**
+## ___
+## Limited **standard** methods articulated
+## Adapt to **data** and **domain** type
+## Scope for **innovation** and **development**
+
+
+
 
 ---
 
