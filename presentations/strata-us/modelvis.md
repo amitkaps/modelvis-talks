@@ -128,7 +128,6 @@ theme: Olive Green, 9
 ## Regression: **Small** 
 ## Classification: **Large p** 
 ## Regression: **Large n**
-## Regression: **N Models**  
 
 ---
 
@@ -137,7 +136,6 @@ theme: Olive Green, 9
 ## **Cars** (n < 50, p = 4)
 ## **Digits** (n ~ 5K, p = 785)
 ## **Taxi** (n ~ 10M, p = 20)
-## **Onions** (n ~ 60k, p = 10)
 
 ---
 
@@ -335,11 +333,14 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
-# High-p Boundary Classifiers
+# High-p **Boundary Classifiers**
 ## ___
-## **Curse** of dimensionality
-## Mesh approach **computationally expensive**
-## Need to use **projections**
+###    
+###     
+###     
+###     
+### [Github: highdimensional-decision-boundary-plot](https://github.com/tmadl/highdimensional-decision-boundary-plot)
+![50% original](figures/wine_knn_svc.png)
 
 ---
 
@@ -354,36 +355,63 @@ VW       Vento      785	   16.1	   Sedan       104
 
 # **Data-Vis Issue**
 ## ___
-![right](figures/fig_mnist_00c.png)
+## **Plotting** is hard e.g. alpha
+## **Sampling** (~1%) may be effective 
+## Require **careful tuning parameters** e.g. overweighting unusual values
+
+![right](figures/nyc_taxi_00.png)
 
 ---
 
-###  [0] Visualise the **data space**
-
-![fit original](figures/fig_mnist_02c.png) ![fit original](figures/fig_mnist_02d.png) 
-
-
----
-
-# **n/p/N Model-Vis approach**
+# **Binning Helps**
 ## ___
-## **n** -- use **Binning** or **Sampling** 
-## **p** -- use **Projections**
-## **N** -- use **Summaries**
+### “**Bin - Summarize - Smooth**: A framework for visualising big data” - Hadley Wickam
+### Package in R: **'BigVis'** (2013)
+###    
+### Recent Interactive implementation in Python
+### Package in Python: **'Datashader'** (2016)
+
+
+---
+
+# **Vis Data Space**
+## ___
+## Plot the **probability of getting a tip**
+## Start to see the patterns in the visualisation
+
+![right](figures/nyc_taxi_01.png)
+
+---
+
+# **Vis Predictions**
+## ___
+## Predict the **probability** of getting tip
+## **Simple Linear Model** - drop coords, passenger count, time and day of week
+![right](figures/nyc_taxi_02.png)
+
+---
+
+# **Vis Errors**
+## ___
+## Visualise the **errors in tip probability distribution**
+
+![right](figures/nyc_taxi_03.png)
+
 
 --- 
 
-# In Practice - **Model Explosion**
+# **N-Models** Challenge
 ## ___
-## **Entire Model Space**
-## + Add **Tuning** Models
-## + Add **Bootstrap** Models
-## + Add **Ensemble** Models
-## + Add **Cross-Validation** Models
+## **Model Explosion**
+### *Entire Model Space*
+### + Add *Tuning* Models
+### + Add *Bootstrap* Models
+### + Add *Ensemble* Models
+### + Add *Cross-Validation* Models
 
 ---
 
-# **Challenge with Model-Vis**
+# **N-Models** Challenge
 ## ___
 ## Keep track of **prediction** & **errors**
 ## Keep track of **model output parameters**
@@ -398,10 +426,28 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
-# **Tooling still nascent**
+# Managing **N-Models**
 ## ___
-## R: **tidyverse** (esp. **broom** and **purr**)
-## Python: **pybroom**, experimental packages
+## **["Managing Many Models in R"](https://www.youtube.com/watch?v=rz3_FDVt9eg)** 
+## *by Hadley Wickham*   
+## **["Broom Package in R](http://varianceexplained.org/files/broom_presentation.pdf)** 
+## *by David Robinson*
+
+---
+
+# **p/n/N Model-Vis challenge**
+## ___
+## **p** -- High dimensional data
+## **n** -- Large and big data
+## **N** -- Multiple models
+
+---
+
+# **n/p/N Model-Vis approach**
+## ___
+## **p** -- use **Projections**
+## **n** -- use **Binning** or **Sampling** 
+## **N** -- use **Tidy Model**
 
 ---
 
@@ -415,26 +461,12 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
----
-
-# **Model-Vis Methods**
-## ___
-## Limited **standard** methods articulated
-## Adapt to **data** and **domain** type
-## Scope for **innovation** and **development**
-
-
-
-
----
-
 # **Model-Vis**
 ## ___
-### Model Visualisation Mini-Site (Coming Soon!)
-### [http://modelvis.amitkaps.com](http://modelvis.amitkaps.com)
+## Slides and Code
+## **[http://modelvis.amitkaps.com](http://modelvis.amitkaps.com)**
 ###    
-### Code
-### [https://github.com/amitkaps/modelvis](https://github.com/amitkaps/modelvis)
+### Mini-Site and Explanation
 
 ---
 
