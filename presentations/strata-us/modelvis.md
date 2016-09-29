@@ -1,6 +1,6 @@
 theme: Olive Green, 9
 
-# [fit] **Visualising ML Models**
+# [fit] **Model Visualisation**
 ## ___
 ## Amit Kapoor
 ## @amitkaps
@@ -470,7 +470,7 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
-# [fit] **Visualising ML Models**
+# [fit] **Model Visualisation**
 ## ___
 ## Amit Kapoor
 ## @amitkaps
