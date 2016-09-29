@@ -443,7 +443,7 @@ VW       Vento      785	   16.1	   Sedan       104
 
 ---
 
-# **n/p/N Model-Vis approach**
+# **p/n/N Model-Vis approach**
 ## ___
 ## **p** -- use **Projections**
 ## **n** -- use **Binning** or **Sampling** 
@@ -466,7 +466,7 @@ VW       Vento      785	   16.1	   Sedan       104
 ## Slides and Code
 ## **[http://modelvis.amitkaps.com](http://modelvis.amitkaps.com)**
 ###    
-### Mini-Site and Explanation
+### Mini-Site and Explanation (by End of 2016)
 
 ---
 
